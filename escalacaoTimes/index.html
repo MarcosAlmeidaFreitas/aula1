@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escalação de Times</title>
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div id="form">
+    <h2>Escalar Jogador</h2>
+
+    <label for="nameJogador">Nome do Jogador: </label>
+    <Input id="input_nameJogador" name="nameJogador" type="text"></Input>
+
+    <label for="numeroCamisa">Número da Camisa: </label>
+    <input type="text" name="numeroCamisa" id="input_numeroCamisa">
+
+    <label for="posicaoTime">Posicionamento no Time: </label>
+    <select name="posicaoTime" id="select_posicaoTime">
+      <option disabled selected>Selecione uma das opções</option>
+      <option value="Goleiro">Goleiro</option>
+      <option value="Zagueiro">Zagueiro</option>
+      <option value="Lateral">Lateral</option>
+      <option value="Volante">Volante</option>
+      <option value="Ala">Ala</option>
+      <option value="MeiaContencao">Meia de Contenção</option>
+      <option value="MeiaArmacao">Meia de Armação</option>
+      <option value="MeiaExtremado">Meia Extremado</option>
+      <option value="MeiaAtacante">Meia Atacante</option>
+      <option value="AtacanteRecuado">Atacante Recuado</option>
+      <option value="AtacanteBeirada">Atacante de Beirada</option>
+      <option value="AtacanteArea">Atacante de Area</option>
+    </select>
+
+    <button onclick="escalarJogador()">Escalar Jogador</button>
+  </div>
+
+  <div>
+    <h2 id="nome_time" onclick="escolherNomeTime()">Clique e digite o nome seu time</h2>
+    <table id="tabela_escalacao" border="1">
+      <thead>
+        <th>Nome Jogador</th>
+        <th>N° da Camisa</th>
+        <th>Posição do Jogador</th>
+        <th colspan="2">Ações</th>
+      </thead>
+    </table>
+  </div>
+  
+</body>
+
+</html>

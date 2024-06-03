@@ -1,0 +1,38 @@
+body{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+h2{
+  text-align: center;
+}
+
+#form{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: 2rem;
+}
+
+
+button{
+  width: 30rem;
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+table{
+  margin: 0 auto;
+}
+
+td{
+  text-align: center;
+}
+
+th{
+  
+}
+
+.btn{
+  width: 5rem;
+}
