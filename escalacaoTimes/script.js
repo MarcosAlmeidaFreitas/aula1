@@ -17,8 +17,8 @@ function escalarJogador() {
   if(editarJogador === false){
     listaJogadores.push(jogador);
   }else{
-    console.log('entrei no else');
     let index = listaJogadores.indexOf(jogadorASerEditado);
+    jogador.id = jogadorASerEditado.id;
     listaJogadores[index] = jogador;
     editarJogador = false;
     jogadorASerEditado = {};
@@ -66,7 +66,6 @@ function atualizarLista() {
       let jogador = listaJogadores.filter(element => element.id === event.target.id )
 
       jogador = jogador[0];
-      console.log(jogador);
       setJogador(jogador);
     }
 
@@ -76,7 +75,9 @@ function atualizarLista() {
     btn_excluir.innerText = 'Excluir';
     btn_excluir.id = jogador.id;
     btn_excluir.onclick = function excluir(){
-      listaJogadores.splice(event.target.id, 1);
+      let jogador = listaJogadores.filter(element => element.id === event.target.id );
+      let index = listaJogadores.indexOf(jogador[0]);
+      listaJogadores.splice(index, 1);
       atualizarLista();
     }
 
