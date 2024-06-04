@@ -1,6 +1,6 @@
 let listaJogadores = [];
-let nomeTime = "";
-//escolherNomeTime();
+let editarJogador = false;
+let jogadorASerEditado = "";
 
 function escalarJogador() {
   let nomeJogador = document.getElementById('input_nameJogador');
@@ -8,13 +8,22 @@ function escalarJogador() {
   let posicionamento = document.getElementById('select_posicaoTime');
 
   const jogador = {
-    id: listaJogadores.length,
+    id: Math.floor(Date.now() * Math.random()).toString(36),
     name: nomeJogador.value,
     numeroCamisa: numeroCamisa.value,
     posicionamento: posicionamento.value,
   }
 
-  listaJogadores.push(jogador);
+  if(editarJogador === false){
+    listaJogadores.push(jogador);
+  }else{
+    console.log('entrei no else');
+    let index = listaJogadores.indexOf(jogadorASerEditado);
+    listaJogadores[index] = jogador;
+    editarJogador = false;
+    jogadorASerEditado = {};
+  }
+
 
   atualizarLista();
 }
@@ -30,7 +39,6 @@ function atualizarLista() {
   if (document.getElementById('tbody') === null) {
     criarTabela();
   } else {
-    console.log('entrei no else');
     const table = document.getElementById('tabela_escalacao');
     let tbody = document.getElementById('tbody');
     table.removeChild(tbody);
@@ -49,6 +57,21 @@ function atualizarLista() {
     let editar = document.createElement('td');
     let excluir = document.createElement('td');
     
+    let btn_editar = document.createElement('button');
+    btn_editar.innerText = 'Editar';
+    btn_editar.id = jogador.id;
+    btn_editar.className = 'btn';
+
+    btn_editar.onclick = function editar(){
+      let jogador = listaJogadores.filter(element => element.id === event.target.id )
+
+      jogador = jogador[0];
+      console.log(jogador);
+      setJogador(jogador);
+    }
+
+    editar.appendChild(btn_editar);
+
     let btn_excluir = document.createElement('button');
     btn_excluir.innerText = 'Excluir';
     btn_excluir.id = jogador.id;
@@ -67,9 +90,10 @@ function atualizarLista() {
     celula.appendChild(njogador);
     celula.append(ncamisa);
     celula.appendChild(posi);
+    celula.appendChild(excluir);
     celula.appendChild(editar);
     tbody.appendChild(celula);
-
+    limparInputText();
   });
 }
 
@@ -81,6 +105,25 @@ function escolherNomeTime(){
 }
 
 
-function editar(){
-  console.log('entrou nessa porra');
+function limparInputText(){
+  const nomeJogador = document.getElementById('input_nameJogador');
+  const numeroCamisa = document.getElementById('input_numeroCamisa');
+  const select_posicaoTime = document.getElementById('select_posicaoTime');
+  
+  nomeJogador.value = "";
+  numeroCamisa.value = "";
+  select_posicaoTime.selectedIndex = 0;
+}
+
+function setJogador(jogador){
+  let nomeJogador = document.getElementById('input_nameJogador');
+  let numeroCamisa = document.getElementById('input_numeroCamisa');
+  let posicionamento = document.getElementById('select_posicaoTime');
+
+  nomeJogador.value = jogador.name;
+  numeroCamisa.value = jogador.numeroCamisa;
+  posicionamento.value = jogador.posicionamento;
+
+  editarJogador = true;
+  jogadorASerEditado = jogador;
 }
