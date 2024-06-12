@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParenteNode</title>
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <h1>Enviando Valores DOM para o JavaScript</h1>
+  <hr>
+  
+  <h2>Register-se</h2>
+  <section>
+    <label for="username">Nome usuário:</label>
+    <input type="text" id="username" name="username">
+    <br>
+    
+    <label for="password">Senha:</label>
+    <input type="text" id="password" name="password">
+    <br>
+
+    <label for="passwordConfimation">Confirmar a Senha:</label>
+    <input type="text" name="passwordConfimation" id="passwordConfimation">
+    <br>
+
+    <button onclick="register(this.parentNode)">Registrar</button>
+  </section>
+</body>
+</html>
