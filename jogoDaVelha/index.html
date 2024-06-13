@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha</title>
+  <script src="./script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Jogo da Velha</h1>
+  <label for="input_play1">X</label>
+  <input type="text" id="player1" name="input_play1" placeholder="Nome do jogador 1">
+  <label for="">O</label>
+  <input type="text" name="input_play2" id="player2" placeholder="Nome do jogador 2">
+  <button id="btn_start">Iniciar Jogo</button>
+  <h2>Vez de: <span id="turnPlayer"></span></h2>
+
+  <section id="gameBoard">
+    <span data-region="0.0"></span>
+    <span data-region="0.1"></span>
+    <span data-region="0.2"></span>
+    <span data-region="1.0"></span>
+    <span data-region="1.1"></span>
+    <span data-region="1.2"></span>
+    <span data-region="2.0"></span>
+    <span data-region="2.1"></span>
+    <span data-region="2.2"></span>
+  </section>
+</body>
+</html>
